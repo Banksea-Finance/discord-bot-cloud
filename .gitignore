@@ -30,3 +30,5 @@ logs
 out
 gen
 /.gradle/
+discord-bot-gateway/build
+discord-bot-gateway/build
