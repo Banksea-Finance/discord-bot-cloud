@@ -48,6 +48,8 @@ public class NftCollectionWhiteListDO implements Serializable {
      */
     private String description;
 
+    private String openseaSymbol;
+
     /**
      * 链接
      */

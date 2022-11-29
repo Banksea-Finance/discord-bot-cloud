@@ -9,7 +9,8 @@ public class NftCollectionWhiteListDTOAssembler {
     public NftCollectionWhiteListDTO apply(NftCollectionWhiteListDO t) {
         NftCollectionWhiteListDTO target = new NftCollectionWhiteListDTO();
         target.setName(t.getNftName());
-        target.setSymbol(t.getSlugSymbol());
+        target.setSymbol(t.getContractAddress());
         return target;
     }
+
 }

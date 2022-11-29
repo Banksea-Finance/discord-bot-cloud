@@ -7,4 +7,5 @@ public class NftCollectionWhiteListDTO {
     public String name;
 
     public String symbol;
+
 }
