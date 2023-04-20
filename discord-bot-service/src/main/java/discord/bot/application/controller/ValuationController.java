@@ -22,6 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class ValuationController {
     private final ValuationImpl valuationService;
 
+    /**
+     * 通过symbol进行估值
+     *
+     * @param symbol 象征
+     * @return {@link ResponseData}<{@link NftCollectionValuationDTO}>
+     */
     @GetMapping("/{symbol}")
     public ResponseData<NftCollectionValuationDTO> valuation(@PathVariable("symbol") String symbol) {
         return ResponseData.success(valuationService.valuation(symbol));

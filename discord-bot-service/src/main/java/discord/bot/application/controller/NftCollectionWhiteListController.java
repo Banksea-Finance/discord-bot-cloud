@@ -25,11 +25,21 @@ public class NftCollectionWhiteListController {
 
     private final NftCollectionWhiteListImpl nftCollectionWhiteList;
 
+    /**
+     * 白名单列表
+     *
+     * @return {@link ResponseData}<{@link List}<{@link NftCollectionWhiteListDTO}>>
+     */
     @GetMapping("/whitelist")
     public ResponseData<List<NftCollectionWhiteListDTO>> whitelist() {
         return ResponseData.success(nftCollectionWhiteList.whitelist());
     }
 
+    /**
+     * 系列监听
+     *
+     * @return {@link ResponseData}<{@link List}<{@link ListenerDTO}>>
+     */
     @GetMapping("/collectionListener")
     public ResponseData<List<ListenerDTO>> collectionListener() {
         return ResponseData.success(nftCollectionWhiteList.collectionListener());
