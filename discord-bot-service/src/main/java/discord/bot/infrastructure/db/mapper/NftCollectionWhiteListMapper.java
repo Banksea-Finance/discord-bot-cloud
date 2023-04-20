@@ -15,10 +15,10 @@ import java.util.List;
  * @since 2021-10-29
  */
 public interface NftCollectionWhiteListMapper extends BaseMapper<NftCollectionWhiteListDO> {
-    @Select("SELECT\n" +
-            "opensea_symbol, image_url, channel_id\n" +
-            "FROM\n" +
-            "discord_channel a\n" +
-            "LEFT JOIN (SELECT id, opensea_symbol, image_url FROM nft_collection_white_list) b ON a.contract_address = b.contract_address\n")
+    @Select("SELECT  " +
+            "opensea_symbol, image_url, channel_id  " +
+            "FROM  " +
+            "discord_channel a  " +
+            "LEFT JOIN (SELECT contract_address, opensea_symbol, image_url FROM nft_collection_white_list) b ON a.contract_address = b.contract_address ")
     List<ListenerDTO> collectionListener();
 }

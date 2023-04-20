@@ -1,10 +1,8 @@
 package discord.bot.infrastructure.db.repository;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import discord.bot.infrastructure.db.entity.DiscordChannelDO;
 import discord.bot.infrastructure.db.mapper.DiscordChannelMapper;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

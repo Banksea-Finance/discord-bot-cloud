@@ -3,6 +3,7 @@ package discord.bot.application.controller;
 import com.gecko.cloud.kit.rest.ResponseData;
 import discord.bot.infrastructure.db.entity.DiscordChannelDO;
 import discord.bot.interfaces.query.command.cmd.CollectionNftCommand;
+import discord.bot.interfaces.query.dto.CollectionDTO;
 import discord.bot.interfaces.query.dto.CollectionNftDTO;
 import discord.bot.interfaces.query.impl.DiscordImpl;
 import lombok.RequiredArgsConstructor;
@@ -43,4 +44,8 @@ public class DiscordController {
         return ResponseData.success(discord.nftInfo(collectionNftCommand));
     }
 
+    @GetMapping("/collection/{contractAddress}")
+    public ResponseData<CollectionDTO> collection(@PathVariable String contractAddress) {
+        return ResponseData.success(discord.collection(contractAddress));
+    }
 }

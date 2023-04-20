@@ -7,8 +7,10 @@ import discord.bot.infrastructure.db.entity.DiscordChannelDO;
 import discord.bot.infrastructure.db.entity.NftMetaDataDO;
 import discord.bot.infrastructure.db.repository.AiNftValuationRepositoryImpl;
 import discord.bot.infrastructure.db.repository.DiscordChannelRepositoryImpl;
+import discord.bot.infrastructure.db.repository.EthereumFloorPriceHistoryRepositoryImpl;
 import discord.bot.infrastructure.db.repository.NftMetaDataRepositoryImpl;
 import discord.bot.interfaces.query.command.cmd.CollectionNftCommand;
+import discord.bot.interfaces.query.dto.CollectionDTO;
 import discord.bot.interfaces.query.dto.CollectionNftDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -32,6 +34,8 @@ public class DiscordImpl {
     private final NftMetaDataRepositoryImpl nftMetaDataRepository;
 
     private final AiNftValuationRepositoryImpl aiNftValuationRepository;
+
+    private final EthereumFloorPriceHistoryRepositoryImpl ethereumFloorPriceHistoryRepository;
 
     public List<String> config(String channelId) {
         return discordChannelRepository.config(channelId);
@@ -84,5 +88,9 @@ public class DiscordImpl {
         BeanUtils.copyProperties(nftMetaDataDO, collectionNftDTO);
         collectionNftDTO.setAiValuation(aiNftValuationDO.getAiValuation());
         return collectionNftDTO;
+    }
+
+    public CollectionDTO collection(String contractAddress) {
+        return ethereumFloorPriceHistoryRepository.collection(contractAddress);
     }
 }
